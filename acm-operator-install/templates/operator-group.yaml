@@ -3,6 +3,9 @@ kind: OperatorGroup
 metadata:
   name: open-cluster-management-op-group
   namespace: open-cluster-management
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/hook: Sync
 spec:
   targetNamespaces:
   - open-cluster-management
