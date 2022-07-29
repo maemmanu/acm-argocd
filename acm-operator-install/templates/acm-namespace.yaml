@@ -4,5 +4,3 @@ metadata:
   name: open-cluster-management
   annotations:
     openshift.io/node-selector: ""
-    argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/hook: Sync
