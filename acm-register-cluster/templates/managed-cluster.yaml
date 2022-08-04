@@ -6,7 +6,7 @@ metadata:
     cloud: auto-detect
     vendor: auto-detect
     {{- range .Values.labels}}
-    {{ .  }}
+    {{ . | tittle }}
     {{- end }}
 spec:
   hubAcceptsClient: true
