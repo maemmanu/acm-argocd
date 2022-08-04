@@ -1,5 +1,4 @@
-labels: 
-  environment: prod
-  operational-status: ready
-  region: westeurope
-  netpols: true
+environment: prod
+operational-status: ready
+region: westeurope
+netpols: true
