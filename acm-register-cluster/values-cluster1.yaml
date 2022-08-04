@@ -1,4 +1,3 @@
 clusterName: hello
 env: prod
-labels:
-  operational-status: ready
+
