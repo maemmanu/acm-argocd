@@ -5,9 +5,9 @@ metadata:
   labels:
     cloud: auto-detect
     vendor: auto-detect
-    environment: {{ .Values.environment | default "dev" }}
-    operational-status: {{ .Values.operational-status | default "alpha" }}
-    region: {{ .Values.region | default "not-defined" }}
-    netpols: {{ .Values.netpols | default "false" }}
+    environment: {{ .Values.environment }}
+    operational-status: {{ .Values.operational-status }}
+    region: {{ .Values.region }}
+    netpols: {{ .Values.netpols }}
 spec:
   hubAcceptsClient: true
