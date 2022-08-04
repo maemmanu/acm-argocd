@@ -6,8 +6,6 @@ metadata:
     cloud: auto-detect
     vendor: auto-detect
     environment: {{ .Values.env }}
-    {{- with .Values.labels }}
-    operational-status: {{ .operational-status | default "test" | quote }}
-    {{- end }}
+    operational-status: {{ .Values.labels.operational-status }}
 spec:
   hubAcceptsClient: true
