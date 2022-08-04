@@ -1,4 +1,2 @@
-environment: prod
-operational-status: ready
-region: westeurope
-netpols: true
+labels:
+  operational-status: ready
