@@ -5,8 +5,7 @@ metadata:
   labels:
     cloud: auto-detect
     vendor: auto-detect
-    {{- range .Values.labels}}
-    {{ . | tittle }}
-    {{- end }}
+{{- range .Values.mylist }}
+{{- printf "  " . }}   
 spec:
   hubAcceptsClient: true
