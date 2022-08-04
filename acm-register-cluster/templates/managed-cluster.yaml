@@ -6,6 +6,6 @@ metadata:
     cloud: auto-detect
     vendor: auto-detect
     environment: {{ .Values.env }}
-    operational: {{ .Values.labe.operational }}
+    operational: {{ .Values.labe.operational | default "alpha" }}
 spec:
   hubAcceptsClient: true
