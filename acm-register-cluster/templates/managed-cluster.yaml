@@ -3,11 +3,9 @@ kind: ManagedCluster
 metadata:
   name: {{ .Values.clusterName }}
   labels:
-    cloud: auto-detect
-    vendor: auto-detect
-    environment: {{ .Values.label.env | default "dev" }}
-    operational: {{ .Values.label.operational | default "alpha" }}
-    region: {{ .Values.label.region | default "none" }}
-    netpol: {{ .Values.label.netpol | default "false" }}
+    environment: {{ .Values.env  }}
+    operational: {{ .Values.operational  }}
+    region: {{ .Values.region }}
+    netpol: {{ .Values.netpol }}
 spec:
   hubAcceptsClient: true
