@@ -1,5 +1,0 @@
-clusterName: hello
-env: prod
-
-labe:
-  operational: ready
