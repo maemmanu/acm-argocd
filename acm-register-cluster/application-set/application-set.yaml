@@ -8,18 +8,18 @@ spec:
     - git:
         repoURL: https://github.com/maemmanu/acm-argocd.git
         revision: HEAD
-        directories:
-          - path: acm-register-cluster/clusters/*
+        files:
+          - path: acm-register-cluster/clusters/values*.yaml
   template:
     metadata:
       namespace: openshift-gitops
-      name: "{{path.basename}}"
+      name: "{{clusterName}}"
     spec:
       project: default
       source:
         helm:
           valueFiles:
-            - "clusters/{{path.basename}}/values.yaml"
+            - "{{path}}"
             - "clusters/values.yaml"
         path: acm-register-cluster
         repoURL: https://github.com/maemmanu/acm-argocd.git
