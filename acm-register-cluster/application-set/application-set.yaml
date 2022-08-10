@@ -19,8 +19,8 @@ spec:
       source:
         helm:
           valueFiles:
-            - "clusters/{{path.basename}}/values-{{clusterName}}.yaml"
-            - "clusters/values.yaml"
+            - "values-{{clusterName}}.yaml"
+            - "values.yaml"
         path: acm-register-cluster
         repoURL: https://github.com/maemmanu/acm-argocd.git
         targetRevision: test-git-file-generator
