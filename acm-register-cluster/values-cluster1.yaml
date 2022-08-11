@@ -1,5 +1,3 @@
 clusterName: cluster1
 labels:
-  op: alpha
   reg: west
-  netpol: true

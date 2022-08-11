@@ -3,6 +3,6 @@ kind: ManagedCluster
 metadata:
   name: {{ .Values.clusterName }}
   labels:
-    reg: {{ .Values.labels.reg }}
+        {{- toYaml .Values.labels | nindent 8 }}
 spec:
   hubAcceptsClient: true
