@@ -13,14 +13,14 @@ spec:
   template:
     metadata:
       namespace: openshift-gitops
-      name: "{{clusterName}}"
+      name: '{{clusterName}}'
     spec:
       project: default
       source:
         helm:
           valueFiles:
-            - "values-{{clusterName}}.yaml"
-            - "values.yaml"
+            - 'values-{{clusterName}}.yaml'
+            - 'values.yaml'
         path: acm-register-cluster
         repoURL: https://github.com/maemmanu/acm-argocd.git
         targetRevision: test-git-file-generator
