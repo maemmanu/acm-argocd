@@ -1,5 +1,5 @@
 clusterName: cluster1
 labels:
-  operational: alpha
-  region: west
+  op: alpha
+  reg: west
   netpol: true

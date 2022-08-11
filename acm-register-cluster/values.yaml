@@ -1,2 +1,2 @@
 labels:
-  environment: test
+  env: test

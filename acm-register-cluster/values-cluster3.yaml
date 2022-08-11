@@ -1,5 +1,5 @@
 clusterName: cluster3
 labels:
-  operational: alpha
-  region: south
+  op: alpha
+  reg: south
   netpol: false
