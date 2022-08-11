@@ -1,3 +1,4 @@
 clusterName: cluster1
 labels:
   reg: west
+  netpol: false
