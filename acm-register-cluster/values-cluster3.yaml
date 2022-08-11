@@ -1,4 +1,5 @@
 clusterName: cluster3
+labels:
   operational: alpha
   region: south
   netpol: false
