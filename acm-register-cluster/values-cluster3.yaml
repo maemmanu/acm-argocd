@@ -1,1 +1,4 @@
 clusterName: cluster3
+  operational: alpha
+  region: south
+  netpol: false

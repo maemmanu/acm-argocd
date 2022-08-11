@@ -3,9 +3,6 @@ kind: ManagedCluster
 metadata:
   name: {{ .Values.clusterName }}
   labels:
-    environment: {{ .Values.env  }}
-    operational: {{ .Values.operational  }}
-    region: {{ .Values.region }}
-    netpol: {{ .Values.netpol }}
+{{ toYaml .Values.labels | indent 4 }}
 spec:
   hubAcceptsClient: true

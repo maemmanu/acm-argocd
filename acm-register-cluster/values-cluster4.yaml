@@ -1,5 +1,5 @@
 clusterName: cluster4
-env: dev
-operational: alpha
-region: north
-netpol: true
+labels:
+  operational: alpha
+  region: north
+  netpol: true

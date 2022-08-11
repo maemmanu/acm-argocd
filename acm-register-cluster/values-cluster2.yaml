@@ -1,1 +1,4 @@
 clusterName: cluster2
+  operational: alpha
+  region: east
+  netpol: true
