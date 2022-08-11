@@ -3,6 +3,6 @@ kind: ManagedCluster
 metadata:
   name: {{ .Values.clusterName }}
   labels:
-    reg: {{ .Values.reg }}
+    reg: {{ .Values.labels.reg }}
 spec:
   hubAcceptsClient: true
