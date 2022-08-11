@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/maemmanu/acm-argocd.git
         revision: test-git-file-generator
         files:
-          - path: acm-register-cluster/values*.yaml
+          - path: acm-register-cluster/values-*.yaml
   template:
     metadata:
       namespace: openshift-gitops
