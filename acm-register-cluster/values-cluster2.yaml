@@ -1,3 +1,4 @@
 clusterName: cluster2
-labels:
-  reg: east
+extraLabels:
+    paas.amadeus.net/environment: test
+    env: test
