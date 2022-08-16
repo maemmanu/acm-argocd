@@ -1,2 +1,4 @@
-labels:
-  env: test
+extraLabels:
+    paas.amadeus.net/operational: test
+    default-variable: var
+    default-label: default
