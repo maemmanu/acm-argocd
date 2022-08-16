@@ -1,4 +1,6 @@
 clusterName: cluster1
-labels:
-  reg: west
-  hello: false
+extraLabels:
+    paas.amadeus.net/environment: prod
+    env: prod
+    paas.amadeus.net/operational-status: aplha
+    component: label2
