@@ -1,0 +1,7 @@
+clusterName: cluster-h7v8v
+extraLabels:
+    paas.amadeus.net/environment: prod
+    env: prod
+    paas.amadeus.net/operational-status: aplha
+    component: label2
+
