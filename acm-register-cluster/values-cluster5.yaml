@@ -1,0 +1,4 @@
+clusterName: cluster5
+extraLabels:
+    paas.amadeus.net/environment: test
+    env: test
