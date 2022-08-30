@@ -7,23 +7,23 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/maemmanu/acm-argocd.git
-        revision: HEAD
-        directories:
-          - path: acm-register-cluster/clusters/*
+        revision: test-git-file-generator
+        files:
+          - path: acm-register-cluster/values-*.yaml
   template:
     metadata:
       namespace: openshift-gitops
-      name: "{{path.basename}}"
+      name: '{{clusterName}}'
     spec:
       project: default
       source:
         helm:
           valueFiles:
-            - "clusters/{{path.basename}}/values.yaml"
-            - "clusters/values.yaml"
+            - 'values-{{clusterName}}.yaml'
+            - 'values.yaml'
         path: acm-register-cluster
         repoURL: https://github.com/maemmanu/acm-argocd.git
-        targetRevision: HEAD
+        targetRevision: test-git-file-generator
       syncPolicy:
         automated:
           selfHeal: true

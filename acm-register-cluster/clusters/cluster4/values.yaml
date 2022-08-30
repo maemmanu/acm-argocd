@@ -1,5 +1,0 @@
-clusterName: cluster4
-env: dev
-operational: alpha
-region: north
-netpol: true
