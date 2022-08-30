@@ -1,4 +1,4 @@
-clusterName: cluster-h7v8v
+clusterName: cluster-4w6jt
 extraLabels:
     paas.amadeus.net/environment: prod
     env: prod

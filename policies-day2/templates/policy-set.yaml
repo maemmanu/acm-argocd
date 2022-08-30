@@ -1,0 +1,36 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  name: prod-policyset
+spec:
+  policies:
+  - policy-demo
+
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: prod-policyset-pb
+placementRef:
+  apiGroup: apps.open-cluster-management.io
+  kind: PlacementRule
+  name: prod-policyset-pr
+subjects:
+- apiGroup: policy.open-cluster-management.io
+  kind: PolicySet
+  name: prod-policyset
+---
+apiVersion: apps.open-cluster-management.io
+kind: PlacementRule
+metadata:
+  name: prod-policyset-pr
+spec:
+  clusterConditions:pagewidth:
+  - status: "True"
+    type: ManagedCLusterConditionAvailable
+  clusterSelectors:
+    matchExpressions:
+      - key: name
+        operator: In
+        values:
+          - local-cluster

@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/maemmanu/acm-argocd.git
-        revision: test-git-file-generator
+        revision: HEAD
         files:
           - path: acm-register-cluster/values-*.yaml
   template:
@@ -23,7 +23,7 @@ spec:
             - 'values.yaml'
         path: acm-register-cluster
         repoURL: https://github.com/maemmanu/acm-argocd.git
-        targetRevision: test-git-file-generator
+        targetRevision: HEAD
       syncPolicy:
         automated:
           selfHeal: true

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: acm-operator
+name: acm-register-cluster
 description: A Helm chart for OpenShift - ACM
 type: application
 version: 0.1.0
