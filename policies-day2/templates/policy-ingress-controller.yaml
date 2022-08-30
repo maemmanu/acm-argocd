@@ -26,15 +26,15 @@ spec:
                 metadata:
                   name: anz
                   namespace: openshift-ingress-operator
-                  spec:
-                    domain: anz.cluster-4w6jt.4w6jt.sandbox315.opentlc.com
-                    routeSelector:
+                spec:
+                  domain: anz.cluster-4w6jt.4w6jt.sandbox315.opentlc.com
+                  routeSelector:
+                    matchLabels:
+                      router: anz
+                  endpointPublishingStrategy:
+                    type: LoadBalancerService
+                  nodePlacement:
+                    nodeSelector:
                       matchLabels:
-                        router: anz
-                    endpointPublishingStrategy:
-                      type: LoadBalancerService
-                    nodePlacement:
-                      nodeSelector:
-                        matchLabels:
-                          node-role.kubernetes.io/infra: ""
+                        node-role.kubernetes.io/infra: ""
 
