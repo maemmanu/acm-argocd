@@ -1,4 +1,4 @@
-apiVersion: policy.open-cluster-management.io/v1beta1
+apiVersion: policy.open-cluster-management.io/v1
 kind: PolicySet
 metadata:
   name: prod-policyset
@@ -22,7 +22,7 @@ subjects:
   kind: PolicySet
   name: prod-policyset
 ---
-apiVersion: apps.open-cluster-management.io
+apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
   name: prod-policyset-pr
