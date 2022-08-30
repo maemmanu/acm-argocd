@@ -4,7 +4,9 @@ metadata:
   name: prod-policyset
 spec:
   policies:
-  - policy-demo
+  - cert-expiration
+  - policy-cert-manager-operator
+  - policy-ingress-controller
 
 ---
 apiVersion: policy.open-cluster-management.io/v1
