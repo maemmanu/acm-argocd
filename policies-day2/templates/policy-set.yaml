@@ -30,7 +30,7 @@ spec:
   clusterConditions:
   - status: "True"
     type: ManagedCLusterConditionAvailable
-  clusterSelectors:
+  clusterSelector:
     matchExpressions:
       - key: name
         operator: In
