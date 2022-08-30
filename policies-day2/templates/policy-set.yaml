@@ -27,7 +27,7 @@ kind: PlacementRule
 metadata:
   name: prod-policyset-pr
 spec:
-  clusterConditions:pagewidth:
+  clusterConditions:
   - status: "True"
     type: ManagedCLusterConditionAvailable
   clusterSelectors:
