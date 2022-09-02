@@ -1,4 +1,0 @@
-policies: 
- - policy-cert-manager
-disabled_upgrade: false
- env: dev
