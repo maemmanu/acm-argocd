@@ -1,13 +1,13 @@
-{{ range .Values.env }}
+{{- range $key, $value := .Values.env }}
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
-  name: policyset-helatcheck-{{ .name }}
+  name: policyset-helatcheck-{{ $key }}
 spec:
   policies:
-{{ range .healthcheck-policies }}
-- {{ . }}
-{{ end }}
+{{- range $key, $value := $value.healthcheck-policies }}
+  - {{ . }}
+{{- end }}
 
 ---
 apiVersion: policy.open-cluster-management.io/v1
@@ -17,16 +17,16 @@ metadata:
 placementRef:
   apiGroup: apps.open-cluster-management.io
   kind: PlacementRule
-  name: policyset-pr-{{ .name }}
+  name: policyset-pr-{{ $key }}
 subjects:
 - apiGroup: policy.open-cluster-management.io
   kind: PolicySet
-  name: policyset-helatcheck-{{ .name }}
+  name: policyset-helatcheck-{{ $key }}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: policyset-pr-{{ .name }}
+  name: policyset-pr-{{ $key }}
 spec:
   clusterConditions:
   - status: "True"
@@ -36,9 +36,9 @@ spec:
       - key: environment 
         operator: In
         values:
-          - {{ .name }}
+          - {{ $key }}
       - key: health-check-disabled 
         operator: In
         values:
           - false
-{{ end }}
+{{- end }}

@@ -1,6 +1,6 @@
 env: 
-- name: dev
-  healthcheck-policies:
+  dev:
+    healthcheck-policies:
     - cert-expiration
     - policy-check-etcd
     - policy-check-pdb
@@ -13,8 +13,8 @@ env:
     - policy-event-openshift-components
     - policy-event
     - policy-machine-notrunning
-- name: test
-  healthcheck-policies:
+  test:
+    healthcheck-policies:
     - cert-expiration
     - policy-check-etcd
     - policy-check-pdb
@@ -27,8 +27,8 @@ env:
     - policy-event-openshift-components
     - policy-event
     - policy-machine-notrunning
-- name: prod
-  healthcheck-policies:
+  prod:
+    healthcheck-policies:
     - cert-expiration
     - policy-check-etcd
     - policy-check-pdb
