@@ -40,5 +40,5 @@ spec:
       - key: health-check-disabled 
         operator: In
         values:
-          - false
+          - "false"
 {{- end }}
