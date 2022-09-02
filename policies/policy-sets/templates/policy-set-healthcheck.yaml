@@ -21,6 +21,8 @@ subjects:
 - apiGroup: policy.open-cluster-management.io
   kind: PolicySet
   name: policyset-helatcheck-{{ $key }}
+{{- end }}
+{{- range $key, $value := .Values.env }}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
