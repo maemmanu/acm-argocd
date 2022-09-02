@@ -51,8 +51,8 @@ spec:
           remediationAction: inform
           severity: low
     - objectDefinition:
-        apiVersion: v1
-        kind: Node
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
         metadata:
           name: policy-checknodes-pidpressure
         spec:
