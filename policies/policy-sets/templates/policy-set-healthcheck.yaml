@@ -5,9 +5,9 @@ metadata:
   name: policyset-helatcheck-{{ $key }}
 spec:
   policies:
-{{ range $policy := $value.healthcheck-policies }}
-{{ $policy | indent 4 }}
-{{ end }}
+    - test-policy
+{{ toYaml $value.healthcheck-policies | indent 4 }}
+
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
