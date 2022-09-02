@@ -6,7 +6,7 @@ metadata:
 spec:
   policies:
 {{ range $key, $value := $value.healthcheck-policies }}
-    - {{ . }}
+{{ toYaml . | indent 4 }}
 {{ end }}
 
 ---
