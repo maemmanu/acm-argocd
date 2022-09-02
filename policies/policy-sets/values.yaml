@@ -1,43 +1,43 @@
 env: 
   dev:
     healthcheck-policies:
-    - cert-expiration
-    - policy-check-etcd
-    - policy-check-pdb
-    - policy-check-ingress
-    - policy-check-upgrade
-    - policy-checkclusteroperator
-    - policy-checkcsr
-    - policy-checknodes
-    - policy-checkpodstatus
-    - policy-event-openshift-components
-    - policy-event
-    - policy-machine-notrunning
+      - cert-expiration
+      - policy-check-etcd
+      - policy-check-pdb
+      - policy-check-ingress
+      - policy-check-upgrade
+      - policy-checkclusteroperator
+      - policy-checkcsr
+      - policy-checknodes
+      - policy-checkpodstatus
+      - policy-event-openshift-components
+      - policy-event
+      - policy-machine-notrunning
   test:
     healthcheck-policies:
-    - cert-expiration
-    - policy-check-etcd
-    - policy-check-pdb
-    - policy-check-ingress
-    - policy-check-upgrade
-    - policy-checkclusteroperator
-    - policy-checkcsr
-    - policy-checknodes
-    - policy-checkpodstatus
-    - policy-event-openshift-components
-    - policy-event
-    - policy-machine-notrunning
+      - cert-expiration
+      - policy-check-etcd
+      - policy-check-pdb
+      - policy-check-ingress
+      - policy-check-upgrade
+      - policy-checkclusteroperator
+      - policy-checkcsr
+      - policy-checknodes
+      - policy-checkpodstatus
+      - policy-event-openshift-components
+      - policy-event
+      - policy-machine-notrunning
   prod:
     healthcheck-policies:
-    - cert-expiration
-    - policy-check-etcd
-    - policy-check-pdb
-    - policy-check-ingress
-    - policy-check-upgrade
-    - policy-checkclusteroperator
-    - policy-checkcsr
-    - policy-checknodes
-    - policy-checkpodstatus
-    - policy-event-openshift-components
-    - policy-event
-    - policy-machine-notrunning
+      - cert-expiration
+      - policy-check-etcd
+      - policy-check-pdb
+      - policy-check-ingress
+      - policy-check-upgrade
+      - policy-checkclusteroperator
+      - policy-checkcsr
+      - policy-checknodes
+      - policy-checkpodstatus
+      - policy-event-openshift-components
+      - policy-event
+      - policy-machine-notrunning
