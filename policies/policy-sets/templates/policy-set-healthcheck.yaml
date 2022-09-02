@@ -1,4 +1,4 @@
-{{- range $key, $value := .Values.env }}
+{{ range $key, $value := .Values.env }}
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
@@ -7,8 +7,8 @@ metadata:
 spec:
   policies:
     - test-policy
-{{- end }}
-{{- range $key, $value := .Values.env }}
+{{ end }}
+{{ range $key, $value := .Values.env }}
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
@@ -23,8 +23,8 @@ subjects:
 - apiGroup: policy.open-cluster-management.io
   kind: PolicySet
   name: policyset-helatcheck-{{ $key }}
-{{- end }}
-{{- range $key, $value := .Values.env }}
+{{ end }}
+{{ range $key, $value := .Values.env }}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
@@ -45,4 +45,4 @@ spec:
         operator: In
         values:
           - "false"
-{{- end }}
+{{ end }}
