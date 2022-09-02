@@ -14,7 +14,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-check-etcd
+          name: policy-check-etcd-members
         spec:
           object-templates:
             - complianceType: mustnothave
@@ -25,6 +25,74 @@ spec:
                   conditions:
                     - status: 'True'
                       type: EtcdMembersDegraded
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-check-etcd-progressing
+        spec:
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: Etcd
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: EtcdMembersProgressing
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-check-etcd-endpoints
+        spec:
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: Etcd
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: EtcdEndpointsDegraded
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-check-etcd-static-resources
+        spec:
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: Etcd
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: EtcdStaticResourcesDegraded
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-check-etcd-static-pods
+        spec:
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: Etcd
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: StaticPodsAvailable
           remediationAction: inform
           severity: low
   remediationAction: inform

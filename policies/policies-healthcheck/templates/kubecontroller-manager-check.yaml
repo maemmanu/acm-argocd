@@ -1,0 +1,47 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  annotations:
+    policy.open-cluster-management.io/categories: PR.IP Information Protection Processes and Procedures
+    policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
+    policy.open-cluster-management.io/standards: NIST-CSF
+  name: policy-check-kubecontroller
+  namespace: default
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-check-kubecontroller-pods
+        spec:
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: KubeControllerManager
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: StaticPodsDegraded
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-check-kubecontroller-nodeinstaller
+        spec:
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: operator.openshift.io/v1
+                kind: KubeControllerManager
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: NodeInstallerDegraded
+          remediationAction: inform
+          severity: low
+  remediationAction: inform
