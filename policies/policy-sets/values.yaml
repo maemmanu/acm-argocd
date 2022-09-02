@@ -1,6 +1,6 @@
 env: 
   dev:
-    healthcheck-policies:
+    healthcheckpolicies:
       - cert-expiration
       - policy-check-etcd
       - policy-check-pdb
@@ -14,7 +14,7 @@ env:
       - policy-event
       - policy-machine-notrunning
   test:
-    healthcheck-policies:
+    healthcheckpolicies:
       - cert-expiration
       - policy-check-etcd
       - policy-check-pdb
@@ -28,7 +28,7 @@ env:
       - policy-event
       - policy-machine-notrunning
   prod:
-    healthcheck-policies:
+    healthcheckpolicies:
       - cert-expiration
       - policy-check-etcd
       - policy-check-pdb

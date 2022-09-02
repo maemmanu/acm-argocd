@@ -6,9 +6,8 @@ metadata:
   namespace: default
 spec:
   policies:
-  {{- range $value.healthcheck-policies }}
-  - {{ . }}
+  {{- range $policy := $value.healthcheckpolicies }}  
+  - {{ $policy }}
   {{- end }}
 ---
 {{- end }}
-
