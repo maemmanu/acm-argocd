@@ -1,0 +1,5 @@
+clusterName: cluster4
+extraLabels:
+  env: test
+  health-check-disabled: false
+extrapolicies: false

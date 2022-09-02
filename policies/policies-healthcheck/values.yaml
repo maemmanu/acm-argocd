@@ -1,0 +1,10 @@
+env: 
+- name: dev
+  policylist: 
+  - cert-expiration
+  - policy-check-etcd
+  - policy-check-pdb
+  - policy-check-ingress
+  - policy-check-upgrade
+  - policy-checkclusteroperator
+  - 

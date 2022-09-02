@@ -1,0 +1,26 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  annotations:
+    policy.open-cluster-management.io/categories: SC System and Communications Protection
+    policy.open-cluster-management.io/controls: SC-8 Transmission Confidentiality and Integrity
+  name: cert-expiration
+  namespace: default
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: CertificatePolicy
+        metadata:
+          name: policy-certificate
+        spec:
+          minimumDuration: 300h
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - openshift-config
+              - openshift-ingress
+          remediationAction: inform
+          severity: low
