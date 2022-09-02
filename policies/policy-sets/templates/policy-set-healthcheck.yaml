@@ -6,8 +6,6 @@ metadata:
 spec:
   policies:
     - test-policy
-{{ toYaml $value.healthcheck-policies | indent 4 }}
-
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
