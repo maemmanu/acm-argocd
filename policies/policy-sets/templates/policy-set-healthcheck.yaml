@@ -7,5 +7,6 @@ metadata:
 spec:
   policies:
     - test-policy
+---
 {{- end }}
 
