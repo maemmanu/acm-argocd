@@ -1,5 +1,5 @@
 clusterName: cluster4
-labels:
+extraLabels:
   env: test
   health-check-disabled: false
 extrapolicies: false
