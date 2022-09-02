@@ -1,0 +1,93 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  annotations:
+    policy.open-cluster-management.io/categories: PR.IP Information Protection Processes and Procedures
+    policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
+    policy.open-cluster-management.io/standards: NIST-CSF
+  name: policy-checknodes
+  namespace: default
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-checknodes-memorypressure
+        spec:
+          namespaceSelector:
+            include:
+              - default
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: v1
+                kind: Node
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: MemoryPressure
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-checknodes-diskpressure
+        spec:
+          namespaceSelector:
+            include:
+              - default
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: v1
+                kind: Node
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: DiskPressure
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: v1
+        kind: Node
+        metadata:
+          name: policy-checknodes-pidpressure
+        spec:
+          namespaceSelector:
+            include:
+              - default
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: config.openshift.io/v1
+                kind: ClusterOperator
+                status:
+                  conditions:
+                    - status: 'True'
+                      type: PIDPressure
+          remediationAction: inform
+          severity: low
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-checknodes-ready
+        spec:
+          namespaceSelector:
+            include:
+              - default
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: v1
+                kind: Node
+                status:
+                  conditions:
+                    - status: 'False'
+                      type: Ready
+          remediationAction: inform
+          severity: low
+  remediationAction: inform

@@ -1,38 +1,44 @@
+{{ range .Values.env }}
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
-  name: prod-policyset
+  name: policyset-helatcheck-{{ .name }}
 spec:
   policies:
-  - cert-expiration
-  - policy-cert-manager-operator
-  - policy-ingress-controller
+{{ range .healthcheck-policies }}
+- {{ . }}
+{{ end }}
 
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: prod-policyset-pb
+  name: policyset-healthcheck-pb
 placementRef:
   apiGroup: apps.open-cluster-management.io
   kind: PlacementRule
-  name: prod-policyset-pr
+  name: policyset-pr-{{ .name }}
 subjects:
 - apiGroup: policy.open-cluster-management.io
   kind: PolicySet
-  name: prod-policyset
+  name: policyset-helatcheck-{{ .name }}
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: prod-policyset-pr
+  name: policyset-pr-{{ .name }}
 spec:
   clusterConditions:
   - status: "True"
     type: ManagedCLusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - key: name
+      - key: environment 
         operator: In
         values:
-          - local-cluster
+          - {{ .name }}
+      - key: health-check-disabled 
+        operator: In
+        values:
+          - false
+{{ end }}

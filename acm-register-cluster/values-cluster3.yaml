@@ -1,3 +1,5 @@
 clusterName: cluster3
 labels:
   env: dev
+  health-check-disabled: false
+extrapolicies: false

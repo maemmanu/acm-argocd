@@ -1,3 +1,5 @@
 clusterName: cluster4
 labels:
   env: test
+  health-check-disabled: false
+extrapolicies: false

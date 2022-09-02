@@ -1,7 +1,0 @@
-clusterName: cluster-4w6jt
-extraLabels:
-    paas.amadeus.net/environment: prod
-    env: prod
-    paas.amadeus.net/operational-status: aplha
-    component: label2
-

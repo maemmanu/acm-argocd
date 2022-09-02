@@ -1,0 +1,32 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  annotations:
+    policy.open-cluster-management.io/categories: PR.IP Information Protection Processes and Procedures
+    policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
+    policy.open-cluster-management.io/standards: NIST-CSF
+  name: policy-event-openshift-components
+  namespace: default
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-event-machine-configpool
+        spec:
+          namespaceSelector:
+            include:
+              - openshift-*
+          object-templates:
+            - complianceType: mustnothave
+              objectDefinition:
+                apiVersion: v1
+                involvedObject:
+                  kind: MachineConfigPool
+                kind: Event
+                type: Warning
+          remediationAction: inform
+          severity: low
+  remediationAction: inform
