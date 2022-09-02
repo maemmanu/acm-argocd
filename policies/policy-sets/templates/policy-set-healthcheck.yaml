@@ -6,7 +6,7 @@ metadata:
 spec:
   policies:
 {{ range $policy := $value.healthcheck-policies }}
-   - {{ $policy }}
+{{ $policy | indent 4 }}
 {{ end }}
 ---
 apiVersion: policy.open-cluster-management.io/v1
