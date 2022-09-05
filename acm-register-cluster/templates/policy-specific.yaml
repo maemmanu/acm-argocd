@@ -1,5 +1,5 @@
 ---
-{{- if .Values.extrapolicies }}
+{{- if .Values.extrapolicieslist }}
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
