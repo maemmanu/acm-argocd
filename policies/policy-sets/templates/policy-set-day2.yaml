@@ -2,11 +2,11 @@
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
-  name: policyset-helathcheck-{{ $key }}
+  name: policyset-day2-{{ $key }}
   namespace: default
 spec:
   policies:
-  {{- range $policy := $value.healthcheckpolicies }}  
+  {{- range $policy := $value.day2policies }}  
   - {{ $policy }}
   {{- end }}
 ---

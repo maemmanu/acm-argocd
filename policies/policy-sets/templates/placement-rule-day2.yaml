@@ -2,7 +2,7 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: policyset-pr-healthcheck-{{ $key }}
+  name: policyset-pr-{{ $key }}
   namespace: default
 spec:
   clusterConditions:
@@ -14,9 +14,5 @@ spec:
         operator: In
         values:
           - {{ $key }}
-      - key: health-check-disabled 
-        operator: In
-        values:
-          - "false"
 ---
 {{- end }}

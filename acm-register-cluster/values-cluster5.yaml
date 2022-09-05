@@ -2,5 +2,5 @@ clusterName: cluster5
 extraLabels:
     paas.amadeus.net/environment: test
     env: test
-    health-check-disabled: false
+    health-check-disabled: "false"
 extrapolicies: false

@@ -4,5 +4,5 @@ extraLabels:
     env: prod
     paas.amadeus.net/operational-status: aplha
     component: label2
-    health-check-disabled: false
+    health-check-disabled: "false"
 extrapolicies: false

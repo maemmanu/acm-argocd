@@ -13,6 +13,8 @@ env:
       - policy-event-openshift-components
       - policy-event
       - policy-machine-notrunning
+    day2policies:
+      - policy-cert-manager-operator
   test:
     healthcheckpolicies:
       - cert-expiration
@@ -27,6 +29,8 @@ env:
       - policy-event-openshift-components
       - policy-event
       - policy-machine-notrunning
+    day2policies:
+      - policy-cert-manager-operator
   prod:
     healthcheckpolicies:
       - cert-expiration
@@ -41,3 +45,5 @@ env:
       - policy-event-openshift-components
       - policy-event
       - policy-machine-notrunning
+    day2policies:
+      - policy-cert-manager-operator

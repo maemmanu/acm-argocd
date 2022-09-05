@@ -1,0 +1,43 @@
+---
+{{- if .Values.extrapolicies }}
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  name: policyset-{{ .Values.clusterName }}
+  namespace: default
+spec:
+  policies:
+  {{- range $policy := .Values.extrapolicieslist }}  
+  - {{ $policy }}
+  {{- end }}
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: policyset-pr-{{ .Values.clusterName }}
+  namespace: default
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedCLusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - key: name 
+        operator: In
+        values:
+          - {{ .Values.clusterName }}
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: policyset-pb-{{ .Values.clusterName }}
+  namespace: default
+placementRef:
+  apiGroup: apps.open-cluster-management.io
+  kind: PlacementRule
+  name: policyset-pr-{{ .Values.clusterName }}
+subjects:
+- apiGroup: policy.open-cluster-management.io
+  kind: PolicySet
+  name: policyset-{{ .Values.clusterName }}
+{{- end }}

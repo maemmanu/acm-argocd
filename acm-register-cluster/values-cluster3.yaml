@@ -1,5 +1,5 @@
 clusterName: cluster3
 extraLabels:
   env: dev
-  health-check-disabled: false
+  health-check-disabled: "false"
 extrapolicies: false
