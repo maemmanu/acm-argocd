@@ -58,6 +58,7 @@ spec:
           namespaceSelector:
             include:
               - openshift-*
+              - kube-*
           object-templates:
             - complianceType: mustnothave
               objectDefinition:
