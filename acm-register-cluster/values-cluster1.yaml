@@ -5,4 +5,7 @@ extraLabels:
     paas.amadeus.net/operational-status: aplha
     component: label2
     health-check-disabled: "false"
-extrapolicies: false
+extrapolicies: true
+extrapolicieslist:
+- cert-expiration
+- policy-check-etcd
