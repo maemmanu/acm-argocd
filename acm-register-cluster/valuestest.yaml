@@ -1,4 +1,4 @@
 extraLabels:
-    paas.amadeus.net/operational: test
+    operational: test
     default-variable: var
     default-label: default
