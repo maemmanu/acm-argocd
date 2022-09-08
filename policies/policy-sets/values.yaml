@@ -31,8 +31,10 @@ env:
       - policy-event-openshift-components
       - policy-event
       - policy-machine-notrunning
-    day2policies:
+    generalpolicies:
       - policy-cert-manager-operator
+    day2argocdpolicies:
+      - policy-day2-test
   prod:
     healthcheckpolicies:
       - cert-expiration
@@ -47,5 +49,7 @@ env:
       - policy-event-openshift-components
       - policy-event
       - policy-machine-notrunning
-    day2policies:
+    generalpolicies:
       - policy-cert-manager-operator
+    day2argocdpolicies:
+      - policy-day2-test
