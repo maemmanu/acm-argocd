@@ -1,0 +1,18 @@
+{{- range $key, $value := .Values.env }}
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: policyset-pr-{{ $key }}
+  namespace: default
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedCLusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - key: environment 
+        operator: In
+        values:
+          - {{ $key }}
+---
+{{- end }}

@@ -2,11 +2,11 @@
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
-  name: policyset-day2-{{ $key }}
+  name: policyset-general-{{ $key }}
   namespace: default
 spec:
   policies:
-  {{- range $policy := $value.day2argocdpolicies }}  
+  {{- range $policy := $value.generalpolicies }}  
   - {{ $policy }}
   {{- end }}
 ---

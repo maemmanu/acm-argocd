@@ -1,0 +1,15 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: policyset-local-cluster
+  namespace: default
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedCLusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - key: name 
+        operator: In
+        values:
+          - local-cluster

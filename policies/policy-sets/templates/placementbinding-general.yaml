@@ -2,15 +2,15 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-  name: policyset-day2-pb-{{ $key }}
+  name: policyset-general-pb-{{ $key }}
   namespace: default
 placementRef:
   apiGroup: apps.open-cluster-management.io
   kind: PlacementRule
-  name: policyset-local-cluster
+  name: policyset-pr-{{ $key }}
 subjects:
 - apiGroup: policy.open-cluster-management.io
   kind: PolicySet
-  name: policyset-day2-{{ $key }}
+  name: policyset-general-{{ $key }}
 ---
 {{- end }}
