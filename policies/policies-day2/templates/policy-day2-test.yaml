@@ -26,12 +26,10 @@ spec:
                   generators:
                   - list:
                       elements:
-                    {{- range $key, $value := .Values.env }}
                     {{- range $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "") }}
                       - cluster: {{ $cluster.metadata.labels.name }}
                         url: {{ $cluster.spec.managedClusterClientConfigs.url }}
                   {{- end }}
-                    {{- end }}
                   template:
                     metadata:
                       name: {{`'{{cluster}}-policy-day2-test'`}}
