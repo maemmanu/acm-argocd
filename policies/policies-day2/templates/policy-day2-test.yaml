@@ -26,9 +26,11 @@ spec:
                   generators:
                   - list:
                       elements:
-                    {{- range $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "") }}
-                      - cluster: {{ $cluster.metadata.labels.name }}
-                        url: {{ $cluster.spec.managedClusterClientConfigs.url }}
+                    {{- range $index, $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "").labels.name }}
+                      - cluster: {{ $cluster }}
+                  {{- end }}
+                    {{- range $index, $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "").spec.managedClusterClientConfigs.url }}
+                        url: {{ $cluster }}
                   {{- end }}
                   template:
                     metadata:
