@@ -38,7 +38,7 @@ spec:
                     {{- end }}
                   template:
                     metadata:
-                      name: '{{cluster}}-policy-day2-test'
+                      name: {{`'{{cluster}}-policy-day2-test'`}}
                     spec:
                       project: default
                       source:
@@ -46,7 +46,7 @@ spec:
                         targetRevision: HEAD
                         path: sample-app
                       destination:
-                        server: '{{url}}'
+                        server: {{`'{{url}}'`}}
                         namespace: openshift-gitops
           remediationAction: inform
           severity: low
