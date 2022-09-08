@@ -26,7 +26,7 @@ spec:
                   generators:
                   - list:
                       elements:
-                    {{- range $index, $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "").labels.name }}
+                  {{- range $index, $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "").metadata.labels.name }}
                       - cluster: {{ $cluster }}
                   {{- end }}
                     {{- range $index, $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "").spec.managedClusterClientConfigs.url }}
