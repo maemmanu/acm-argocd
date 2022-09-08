@@ -27,13 +27,9 @@ spec:
                   - list:
                       elements:
                     {{- range $key, $value := .Values.env }}
-                    {{ if has $value.day2argocdpolicies $key "policy-day2-test"}}
                     {{- range $cluster := (lookup "cluster.open-cluster-management.io/v1" "ManagedCluster" "" "") }}
-                    {{ if eq $cluster.metadata.labels.env $key }}
                       - cluster: {{ $cluster.metadata.labels.name }}
                         url: {{ $cluster.spec.managedClusterClientConfigs.url }}
-                    {{ end }}
-                    {{- end }}
                   {{- end }}
                     {{- end }}
                   template:
