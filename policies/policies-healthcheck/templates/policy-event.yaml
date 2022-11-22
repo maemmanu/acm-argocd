@@ -5,6 +5,8 @@ metadata:
     policy.open-cluster-management.io/categories: PR.IP Information Protection Processes and Procedures
     policy.open-cluster-management.io/controls: PR.IP-1 Baseline Configuration
     policy.open-cluster-management.io/standards: NIST-CSF
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: Prune=false
   name: policy-event
   namespace: default
 spec:
