@@ -1,5 +1,5 @@
 {{- range $key, $value := .Values.env }}
-{{- if gt (len $value.day2policies) 0 -}}
+{{- if $value.day2policies -}}
 apiVersion: policy.open-cluster-management.io/v1beta1
 kind: PolicySet
 metadata:
