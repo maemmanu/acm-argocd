@@ -36,18 +36,6 @@ env:
     day2argocdpolicies:
   prod:
     healthcheckpolicies:
-      - cert-expiration
-      - policy-check-etcd
-      - policy-check-pdb
-      - policy-check-ingress
-      - policy-check-upgrade
-      - policy-checkclusteroperator
-      - policy-checkcsr
-      - policy-checknodes
-      - policy-checkpodstatus
-      - policy-event-openshift-components
-      - policy-event
-      - policy-machine-notrunning
     generalpolicies:
       - policy-cert-manager-operator
     day2argocdpolicies:
