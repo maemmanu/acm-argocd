@@ -34,7 +34,6 @@ env:
     generalpolicies:
       - policy-cert-manager-operator
     day2argocdpolicies:
-      - policy-day2-test
   prod:
     healthcheckpolicies:
       - cert-expiration
